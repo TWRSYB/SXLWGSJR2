@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxlw.mapper.FanhaoMapper">
+
+
+    <select id="getTableDesign" resultType="com.sxlw.vo.SimpleTableDesign">
+        select COLUMN_NAME, column_comment from INFORMATION_SCHEMA.Columns where table_name='M_FANHAO'
+    </select>
+</mapper>

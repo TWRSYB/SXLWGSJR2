@@ -1,0 +1,32 @@
+spring:
+  # 配置数据源信息
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/twrsyb?
+    username: root
+    password: 123456
+logging:
+  level:
+    com:
+      offcn:
+        mapper: debug
+#mybatis-plus:
+#  mapper-locations: classpath:/mybatis/mappers/*.xml
+#  type-aliases-package: com.sxlw.daoVo
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.stdOutImpl
+server:
+  port: 9090
+  servlet:
+    context-path: /
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:/mybatis/mappers/*.xml
+  type-aliases-package: com.sxlw.daoVo
+
+fileDir:
+  actressHomePath: E:/00.日本女优
+  fanhaoHomePath: E:/00.日本无码
+
+

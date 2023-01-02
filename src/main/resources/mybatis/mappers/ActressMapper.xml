@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sxlw.mapper.ActressMapper">
+
+
+    <select id="generateKey" resultType="java.lang.String">
+        SELECT MAX(KEY_ACTRESS_NO) FROM M_ACTRESS WHERE KEY_ACTRESS_NO LIKE CONCAT(#{nowDate}, '%')
+    </select>
+    <select id="getTableDesign" resultType="com.sxlw.vo.SimpleTableDesign">
+        select COLUMN_NAME, COLUMN_COMMENT, COLUMN_DEFAULT
+        from INFORMATION_SCHEMA.Columns where table_name='m_actress'
+    </select>
+    <select id="nameLikeSearch" resultType="com.sxlw.daoVo.Actress">
+        SELECT * FROM M_ACTRESS A
+        WHERE A.NAME_STAGE LIKE CONCAT('%', #{nowDate}, '%')
+            OR A.NAME_JP_TRUE  LIKE CONCAT('%', #{nowDate}, '%')
+            OR A.NAME_CN  LIKE CONCAT('%', #{nowDate}, '%')
+            OR A.NAME_EN  LIKE CONCAT('%', #{nowDate}, '%')
+            OR A.NAME_OTHER  LIKE CONCAT('%', #{nowDate}, '%')
+    </select>
+
+
+</mapper>
