@@ -24,226 +24,255 @@ public class Fanhao extends Model {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 系列: 由字典表维护, 系列表(D_SERIES);
+     * 系列: 由字典表维护(系列表D_SERIES)
      */
-    @TableId("SERIES")
-    private String series;
+    @TableId("KEY_SERIES")
+    private String keySeries;
 
     /**
-     * 子系列: 由字典表维护, 系列表(D_SERIES);
+     * 系统番号: 系统录入番号加勒比和一本道进行了时间的顺序化
      */
-    @TableField("SUB_SERIES")
-    private String subSeries;
+    @TableField("KEY_SYS_FANHAO")
+    private String keySysFanhao;
 
     /**
-     * 原番号: 官方番号;
+     * 子系列: 由字典表维护(系列表D_SERIES)
      */
-    @TableField("PRIMITIVE_FANHAO")
-    private String primitiveFanhao;
+    @TableField("FH_SUB_SERIES")
+    private String fhSubSeries;
 
     /**
-     * 系统番号: 系统录入番号, 加勒比和一本道进行了时间的顺序化;
+     * 原番号: 官方番号
      */
-    @TableField("SYS_FANHAO")
-    private String sysFanhao;
+    @TableField("FH_PRIMITIVE_FANHAO")
+    private String fhPrimitiveFanhao;
 
     /**
-     * 影片名称;
+     * 影片名称
      */
-    @TableField("FILM_TITLE")
-    private String filmTitle;
+    @TableField("FH_FILM_TITLE")
+    private String fhFilmTitle;
 
     /**
-     * 发行年月日;
+     * 发行年月日
      */
-    @TableField("ISSUE_YMD")
-    private String issueYmd;
+    @TableField("FH_ISSUE_YMD")
+    private String fhIssueYmd;
 
     /**
-     * 女优数: 0-没有,1-一个, 2-两个, N-大于两个;
+     * 同时女优数: 0,1,2,N
      */
-    @TableField("ACTRESS_NUM")
-    private Integer actressNum;
+    @TableField("YY_COEXIST_ACTRESS_NUM")
+    private Integer yyCoexistActressNum;
 
     /**
-     * 女优编号: 关联表, 女演员表M_ACTRESS;
+     * 女优列表: 关联表, 女演员表M_ACTRESS
      */
-    @TableField("ACTRESS_NO")
-    private String actressNo;
+    @TableField("YY_ACTRESS_NO")
+    private String yyActressNo;
 
     /**
-     * 女优;
+     * 女优
      */
-    @TableField("ACTRESS")
-    private String actress;
+    @TableField("YY_ACTRESS")
+    private String yyActress;
 
     /**
-     * 男优数: 0-没有,1-一个, 2-两个, N-大于两个;
+     * 同时男优数: 0,1,2,N
      */
-    @TableField("ACTOR_NUM")
-    private Integer actorNum;
+    @TableField("YY_COEXIST_ACTOR_NUM")
+    private Integer yyCoexistActorNum;
 
     /**
-     * 男优编号: 由字典表维护, 男演员表(D_ACTOR);
+     * 男优编号: 由字典表维护, 男演员表(D_ACTOR)
      */
-    @TableField("ACTOR_NO")
-    private String actorNo;
+    @TableField("YY_ACTOR_NO")
+    private String yyActorNo;
 
     /**
-     * 人妖数: 0-没有,1-一个, 2-两个, N-大于两个;
+     * 人妖数: 0,1,2,N
      */
-    @TableField("LADYBOY_NUM")
-    private Integer ladyboyNum;
+    @TableField("YY_LADYBOY_NUM")
+    private Integer yyLadyboyNum;
 
     /**
-     * 人妖编号: 由字典表维护, 人妖表(D_LADYBOY);
+     * 人妖编号: 由字典表维护, 人妖表(D_LADYBOY)
      */
-    @TableField("LADYBOY_NO")
-    private String ladyboyNo;
+    @TableField("YY_LADYBOY_NO")
+    private String yyLadyboyNo;
 
     /**
-     * 兽类: 狗,马,泥鳅,猪,蛇,其他;
+     * 兽类: 狗,马,泥鳅,猪,蛇,其他
      */
-    @TableField("BEAST_TYPE")
-    private String beastType;
+    @TableField("YY_BEAST_TYPE")
+    private String yyBeastType;
 
     /**
-     * 场景: 家庭, 户外, 综艺, 囚禁, 专业A片;
+     * 场景: 家庭, 户外, 综艺, 囚禁, 专业A片
      */
-    @TableField("SCENE_TYPE")
-    private String sceneType;
+    @TableField("JQ_SCENE_TYPE")
+    private String jqSceneType;
 
     /**
-     * 角色: 妻子, 女儿, 老师, 下属, 上司, 性奴, 侦查官, 学生, 主人, 专业A片;
+     * 角色: 妻子, 女儿, 老师, 下属, 上司, 性奴, 侦查官, 学生, 主人, 专业A片
      */
-    @TableField("ROLE_TYPE")
-    private String roleType;
+    @TableField("JQ_ROLE_TYPE")
+    private String jqRoleType;
 
     /**
-     * 剧情: 夫妻性爱, 轮乱, 强奸, 性虐, 兽交, 侦查官, 专业A片;
+     * 剧情: 夫妻性爱, 轮乱, 强奸, 性虐, 兽交, 侦查官, 专业A片
      */
-    @TableField("STORY_TYPE")
-    private String storyType;
+    @TableField("JQ_STORY_TYPE")
+    private String jqStoryType;
 
     /**
-     * 肛交级别: 0-无肛交, 1-1人肛交, N多人肛交;
+     * 肛交级别: 无肛交, 1人肛交, 多人肛交
      */
     @TableField("ANAL_SEX_LV")
     private String analSexLv;
 
     /**
-     * 肛门灌肠级别: 0-无灌肠, 1-简单灌肠, 2大量灌肠;
+     * 肛门灌肠级别: 无灌肠, 简单灌肠, 大量灌肠
      */
     @TableField("ANAL_ENEMA_LV")
     private String analEnemaLv;
 
     /**
-     * 肛门灌精级别;
+     * 肛门灌精级别: 无, 内射, 轮射
      */
     @TableField("ANAL_INJECT_SEMEN_LV")
     private String analInjectSemenLv;
 
     /**
-     * 肛门同时插入鸡巴数;
+     * 肛门同时插入鸡巴数: 0,1,2,3,4
      */
     @TableField("ANAL_COEXIST_PENIS_NUM")
     private Integer analCoexistPenisNum;
 
     /**
-     * 肛门内窥与否: Y-是, N-否;
+     * 肛门内窥与否: 是, 否
      */
     @TableField("ANAL_ENDOSCOPY_YN")
     private String analEndoscopyYn;
 
     /**
-     * 阴道灌精级别: 0-无内射, 1-普通内射, 2-轮番内射, 3-轮番灌精;
+     * 阴道灌精级别: 无, 内射, 轮射
      */
-    @TableField("INJECT_SEMEN_LV")
-    private String injectSemenLv;
+    @TableField("XJ_INJECT_SEMEN_LV")
+    private String xjInjectSemenLv;
 
     /**
-     * 阴道同时插入鸡巴数;
+     * 阴道同时插入鸡巴数: 0,1,2,3,4
      */
-    @TableField("COEXIST_PENIS_NUM")
-    private Integer coexistPenisNum;
+    @TableField("XJ_COEXIST_PENIS_NUM")
+    private Integer xjCoexistPenisNum;
 
     /**
-     * 内窥阴道与否: Y-是, N-否;
+     * 内窥阴道与否: 是, 否
      */
-    @TableField("ENDOSCOPY_VAGINA_YN")
-    private String endoscopyVaginaYn;
+    @TableField("XJ_ENDOSCOPY_VAGINA_YN")
+    private String xjEndoscopyVaginaYn;
 
     /**
-     * 口交级别: 0-无口交, 1-自愿口交, 2-强制口交, 3-深喉;
+     * 口交级别: 无,自愿口交,强制口交,深喉
      */
-    @TableField("ORAL_SEX_LV")
-    private String oralSexLv;
+    @TableField("KJ_ORAL_SEX_LV")
+    private String kjOralSexLv;
 
     /**
-     * 嘴同时插入鸡巴数;
+     * 嘴同时插入鸡巴数: 0,1,2,3,4
      */
-    @TableField("MONTH_COEXIST_PENIS_NUM")
-    private Integer monthCoexistPenisNum;
+    @TableField("KJ_MONTH_COEXIST_PENIS_NUM")
+    private Integer kjMonthCoexistPenisNum;
 
     /**
-     * 口爆级别: 0-无口爆, 1-1人口爆, N-多人口爆;
+     * 口爆级别: 无,1人口爆,多人口爆
      */
-    @TableField("MOUTH_EJACULATE_LV")
-    private String mouthEjaculateLv;
+    @TableField("KJ_MOUTH_EJACULATE_LV")
+    private String kjMouthEjaculateLv;
 
     /**
-     * 吞精级别: 0-无吞精, 1-吞1人精, N-吞多人精;
+     * 吞精级别: 无,吞1人精,吞多人精
      */
-    @TableField("SWALLOW_SEMEN_LV")
-    private String swallowSemenLv;
+    @TableField("KJ_SWALLOW_SEMEN_LV")
+    private String kjSwallowSemenLv;
 
     /**
-     * 捆绑级别: 0-无捆绑, 1-手脚捆绑, 2-全身捆绑, 3-支架捆绑;
+     * 捆绑级别: 无捆绑, 手脚捆绑, 全身捆绑, 支架捆绑
      */
-    @TableField("TIE_LV")
-    private String tieLv;
+    @TableField("TS_TIE_LV")
+    private String tsTieLv;
 
     /**
-     * 白虎级别: 0-非白虎, 1-人工白虎, 2-天然白虎;
+     * 白虎级别: 非白虎, 人工白虎, 天然白虎
      */
-    @TableField("WHITE_TIGER_LV")
-    private String whiteTigerLv;
+    @TableField("TS_WHITE_TIGER_LV")
+    private String tsWhiteTigerLv;
 
     /**
-     * 颜射级别: 0-无颜射, 1-1人颜射, N-多人颜射;
+     * 颜射级别: 无,1人颜射, 多人颜射
      */
-    @TableField("FACE_EJACULATE_LV")
-    private String faceEjaculateLv;
+    @TableField("TS_FACE_EJACULATE_LV")
+    private String tsFaceEjaculateLv;
 
     /**
-     * 收录时间;
+     * 潮吹与否: 是,否
      */
-    @TableField("RECORDING_TIME")
-    private LocalDateTime recordingTime;
+    @TableField("TS_FEMALE_EJACULA_YN")
+    private String tsFemaleEjaculaYn;
 
     /**
-     * 收录人;
+     * 饮男尿: 是,否
      */
-    @TableField("RECORDER")
-    private String recorder;
+    @TableField("TS_DRIND_MAN_URINE_YN")
+    private String tsDrindManUrineYn;
 
     /**
-     * 最后修改时间;
+     * 饮女尿: 是,否
      */
-    @TableField("LAST_MODIFIED_TIME")
-    private LocalDateTime lastModifiedTime;
+    @TableField("TS_DRIND_WOMAN_URINE_YN")
+    private String tsDrindWomanUrineYn;
 
     /**
-     * 最后修改人;
+     * 简述
      */
-    @TableField("LAST_MODIFIER")
-    private String lastModifier;
+    @TableField("MS_RESUME")
+    private String msResume;
 
     /**
-     * 数据状态: 0-未生效, 1-正常, 2-不可用;
+     * 详细
      */
-    @TableField("DATA_STATUS")
-    private String dataStatus;
+    @TableField("MS_DETAIL")
+    private String msDetail;
 
+    /**
+     * 收录时间
+     */
+    @TableField("RC_RECORD_TIME")
+    private LocalDateTime rcRecordTime;
+
+    /**
+     * 收录人
+     */
+    @TableField("RC_RECORDER")
+    private String rcRecorder;
+
+    /**
+     * 最后修改时间
+     */
+    @TableField("RC_LAST_MODIFIED_TIME")
+    private LocalDateTime rcLastModifiedTime;
+
+    /**
+     * 最后修改人
+     */
+    @TableField("RC_LAST_MODIFIER")
+    private String rcLastModifier;
+
+    /**
+     * 数据状态: 0-未生效, 1-正常, 2-不可用,9-废弃
+     */
+    @TableField("RC_DATA_STATUS")
+    private String rcDataStatus;
 
 }

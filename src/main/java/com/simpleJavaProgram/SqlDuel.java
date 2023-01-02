@@ -7,9 +7,9 @@ public class SqlDuel {
     public static void main(String[] args) {
         //将字段装换为Json字符串对象();
 //        将Excel数据装换为Json字符串对象();
-        将Excel数据小写字段装换为Json字符串对象();
-//        将字段装换为CreateSql语句();
-        //将驼峰装换为下划线();
+//        将Excel数据小写字段装换为Json字符串对象();
+        将字段装换为CreateSql语句();
+//        将驼峰装换为下划线();
 //        将下划线转为驼峰();
     }
 
@@ -66,40 +66,43 @@ public class SqlDuel {
 
     private static void 将下划线转为驼峰() {
 
-        String str = "KEY_ACTRESS_NO\n" +
-                "NAME_STAGE\n" +
-                "NAME_JP_TRUE\n" +
-                "NAME_CN\n" +
-                "NAME_EN\n" +
-                "NAME_OTHER\n" +
-                "BIRTH_YMD\n" +
-                "BIRTH_COUNTRY\n" +
-                "BIRTH_PLACE\n" +
-                "XM_APPEARANCE_INDEX\n" +
-                "XM_APPEARANCE_TYPE\n" +
-                "XM_FACE_TYPE\n" +
-                "XM_SKIN_COLOR\n" +
-                "XM_LIKE\n" +
-                "QZ_CHARACTER\n" +
-                "TX_TALL_OR_SHORT\n" +
-                "TX_FAT_OR_THIN\n" +
-                "TX_TIT_SIZE\n" +
-                "TX_LEGS_TYPE\n" +
-                "TX_LEGS_THICKNESS\n" +
-                "TX_HIP_TYPE\n" +
-                "TX_HIP_DISTANCE\n" +
-                "HX_COLOR\n" +
-                "HX_TYPE\n" +
-                "HX_WHITE_TIGER\n" +
-                "SC_HEIGHT\n" +
-                "SC_WEIGHT\n" +
-                "SC_CUP\n" +
-                "SC_BUST\n" +
-                "CD_DEBUT_YMD\n" +
-                "CD_DEBUT_AGE\n" +
-                "CD_RETIRE_YMD\n" +
-                "CD_RETIRE_AGE\n" +
-                "CD_PERIODS\n" +
+        String str = "KEY_SERIES\n" +
+                "KEY_SYS_FANHAO\n" +
+                "FH_SUB_SERIES\n" +
+                "FH_PRIMITIVE_FANHAO\n" +
+                "FH_FILM_TITLE\n" +
+                "FH_ISSUE_YMD\n" +
+                "YY_COEXIST_ACTRESS_NUM\n" +
+                "YY_ACTRESS_NO\n" +
+                "YY_ACTRESS\n" +
+                "YY_COEXIST_ACTOR_NUM\n" +
+                "YY_ACTOR_NO\n" +
+                "YY_LADYBOY_NUM\n" +
+                "YY_LADYBOY_NO\n" +
+                "YY_BEAST_TYPE\n" +
+                "JQ_SCENE_TYPE\n" +
+                "JQ_ROLE_TYPE\n" +
+                "JQ_STORY_TYPE\n" +
+                "ANAL_SEX_LV\n" +
+                "ANAL_ENEMA_LV\n" +
+                "ANAL_INJECT_SEMEN_LV\n" +
+                "ANAL_COEXIST_PENIS_NUM\n" +
+                "ANAL_ENDOSCOPY_YN\n" +
+                "XJ_INJECT_SEMEN_LV\n" +
+                "XJ_COEXIST_PENIS_NUM\n" +
+                "XJ_ENDOSCOPY_VAGINA_YN\n" +
+                "KJ_ORAL_SEX_LV\n" +
+                "KJ_MONTH_COEXIST_PENIS_NUM\n" +
+                "KJ_MOUTH_EJACULATE_LV\n" +
+                "KJ_SWALLOW_SEMEN_LV\n" +
+                "TS_TIE_LV\n" +
+                "TS_WHITE_TIGER_LV\n" +
+                "TS_FACE_EJACULATE_LV\n" +
+                "TS_FEMALE_EJACULA_YN\n" +
+                "TS_DRIND_MAN_URINE_YN\n" +
+                "TS_DRIND_WOMAN_URINE_YN\n" +
+                "MS_RESUME\n" +
+                "MS_DETAIL\n" +
                 "RC_RECORD_TIME\n" +
                 "RC_RECORDER\n" +
                 "RC_LAST_MODIFIED_TIME\n" +
@@ -203,40 +206,43 @@ public class SqlDuel {
     }
 
     private static void 将字段装换为CreateSql语句() {
-        String str = "KEY_ACTRESS_NO\t女优编号\t收录日期拼接2位数字\n" +
-                "NAME_STAGE\t艺名\t\n" +
-                "NAME_JP_TRUE\t日文真名\t\n" +
-                "NAME_CN\t中文名\t\n" +
-                "NAME_EN\t英文名\t\n" +
-                "NAME_OTHER\t别名\t\n" +
-                "BIRTH_YMD\t出生年月日\t\n" +
-                "BIRTH_COUNTRY\t国家\t由字典表维护\n" +
-                "BIRTH_PLACE\t出生地\t\n" +
-                "XM_APPEARANCE_INDEX\t颜值\t1-4-差, 5-一般, 6-7-好看, 8-9-很好看, A-E-绝品, S-最爱\n" +
-                "XM_APPEARANCE_TYPE\t相貌类型\t童颜, 御女, 熟妇\n" +
-                "XM_FACE_TYPE\t脸型\t\n" +
-                "XM_SKIN_COLOR\t肤色\t未收录, 黑, 黄, 白, 粉\n" +
-                "XM_LIKE\t印象\t未收录, 无, 人名\n" +
-                "QZ_CHARACTER\t性格\t未收录, 冷淡, 活泼\n" +
-                "TX_TALL_OR_SHORT\t高低\t未收录, 很矮, 较矮, 中等, 较高, 很高\n" +
-                "TX_FAT_OR_THIN\t胖瘦\t未收录, 很瘦, 较瘦, 中等, 较胖, 很胖\n" +
-                "TX_TIT_SIZE\t奶子大小\t未收录, 极小, 小, 正常, 大, 巨大\n" +
-                "TX_LEGS_TYPE\t腿型\t未收录, X型, 微X型, 筷子型, 微O型, O型\n" +
-                "TX_LEGS_THICKNESS\t腿粗细\t未收录, 极细, 较细, 正常, 较粗, 极粗\n" +
-                "TX_HIP_TYPE\t臀型\t未收录, 极囵, 较囵, 正常, 丰满, 肥\n" +
-                "TX_HIP_DISTANCE\t胯距\t拳数\n" +
-                "HX_COLOR\t颜色\t未收录, 黑色, 肤色, 粉色\n" +
-                "HX_TYPE\t户型\t未收录, 一线天, 蝴蝶屄, 馒头屄\n" +
-                "HX_WHITE_TIGER\t白虎\t未收录, 是, 否\n" +
-                "SC_HEIGHT\t身高\tcm\n" +
-                "SC_WEIGHT\t体重\tkg\n" +
-                "SC_CUP\t杯罩\t未收录,A,B,C,D,E,F,G,H\n" +
-                "SC_BUST\t三围\t\n" +
-                "CD_DEBUT_YMD\t出道年月日\t\n" +
-                "CD_DEBUT_AGE\t出道年龄\t\n" +
-                "CD_RETIRE_YMD\t隐退年月日\t\n" +
-                "CD_RETIRE_AGE\t隐退年龄\t\n" +
-                "CD_PERIODS\t出道期间\t\n" +
+        String str = "KEY_SERIES\t系列\t由字典表维护(系列表D_SERIES)\n" +
+                "KEY_SYS_FANHAO\t系统番号\t系统录入番号加勒比和一本道进行了时间的顺序化\n" +
+                "FH_SUB_SERIES\t子系列\t由字典表维护(系列表D_SERIES)\n" +
+                "FH_PRIMITIVE_FANHAO\t原番号\t官方番号\n" +
+                "FH_FILM_TITLE\t影片名称\t\n" +
+                "FH_ISSUE_YMD\t发行年月日\t\n" +
+                "YY_COEXIST_ACTRESS_NUM\t同时女优数\t0,1,2,N\n" +
+                "YY_ACTRESS_NO\t女优列表\t关联表, 女演员表M_ACTRESS\n" +
+                "YY_ACTRESS\t女优\t\n" +
+                "YY_COEXIST_ACTOR_NUM\t同时男优数\t0,1,2,N\n" +
+                "YY_ACTOR_NO\t男优编号\t由字典表维护, 男演员表(D_ACTOR)\n" +
+                "YY_LADYBOY_NUM\t人妖数\t0,1,2,N\n" +
+                "YY_LADYBOY_NO\t人妖编号\t由字典表维护, 人妖表(D_LADYBOY)\n" +
+                "YY_BEAST_TYPE\t兽类\t狗,马,泥鳅,猪,蛇,其他\n" +
+                "JQ_SCENE_TYPE\t场景\t家庭, 户外, 综艺, 囚禁, 专业A片\n" +
+                "JQ_ROLE_TYPE\t角色\t妻子, 女儿, 老师, 下属, 上司, 性奴, 侦查官, 学生, 主人, 专业A片\n" +
+                "JQ_STORY_TYPE\t剧情\t夫妻性爱, 轮乱, 强奸, 性虐, 兽交, 侦查官, 专业A片\n" +
+                "ANAL_SEX_LV\t肛交级别\t无肛交, 1人肛交, 多人肛交\n" +
+                "ANAL_ENEMA_LV\t肛门灌肠级别\t无灌肠, 简单灌肠, 大量灌肠\n" +
+                "ANAL_INJECT_SEMEN_LV\t肛门灌精级别\t无, 内射, 轮射\n" +
+                "ANAL_COEXIST_PENIS_NUM\t肛门同时插入鸡巴数\t0,1,2,3,4\n" +
+                "ANAL_ENDOSCOPY_YN\t肛门内窥与否\t是, 否\n" +
+                "XJ_INJECT_SEMEN_LV\t阴道灌精级别\t无, 内射, 轮射\n" +
+                "XJ_COEXIST_PENIS_NUM\t阴道同时插入鸡巴数\t0,1,2,3,4\n" +
+                "XJ_ENDOSCOPY_VAGINA_YN\t内窥阴道与否\t是, 否\n" +
+                "KJ_ORAL_SEX_LV\t口交级别\t无,自愿口交,强制口交,深喉\n" +
+                "KJ_MONTH_COEXIST_PENIS_NUM\t嘴同时插入鸡巴数\t0,1,2,3,4\n" +
+                "KJ_MOUTH_EJACULATE_LV\t口爆级别\t无,1人口爆,多人口爆\n" +
+                "KJ_SWALLOW_SEMEN_LV\t吞精级别\t无,吞1人精,吞多人精\n" +
+                "TS_TIE_LV\t捆绑级别\t无捆绑, 手脚捆绑, 全身捆绑, 支架捆绑\n" +
+                "TS_WHITE_TIGER_LV\t白虎级别\t非白虎, 人工白虎, 天然白虎\n" +
+                "TS_FACE_EJACULATE_LV\t颜射级别\t无,1人颜射, 多人颜射\n" +
+                "TS_FEMALE_EJACULA_YN\t潮吹与否\t是,否\n" +
+                "TS_DRIND_MAN_URINE_YN\t饮男尿\t是,否\n" +
+                "TS_DRIND_WOMAN_URINE_YN\t饮女尿\t是,否\n" +
+                "MS_RESUME\t简述\t\n" +
+                "MS_DETAIL\t详细\t\n" +
                 "RC_RECORD_TIME\t收录时间\t\n" +
                 "RC_RECORDER\t收录人\t\n" +
                 "RC_LAST_MODIFIED_TIME\t最后修改时间\t\n" +
