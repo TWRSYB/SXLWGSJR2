@@ -3,6 +3,9 @@ package com.sxlw.cont;
 
 import com.sxlw.daoVo.Fanhao;
 import com.sxlw.svc.FanhaoService;
+import com.sxlw.vo.FanhaoMix;
+import com.sxlw.vo.ResVo;
+import com.sxlw.vo.TableDesign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,8 +40,13 @@ public class FanhaoController {
     }
 
     @GetMapping("/getTableDesign")
-    public Map getTableDesign(){
+    public ResVo<TableDesign> getTableDesign(){
         return fanhaoService.getTableDesign();
+    }
+
+    @PostMapping("/fanhaoSearch")
+    public ResVo<List<FanhaoMix>> fanhaoSearch(@RequestBody Map<String, String> map){
+        return fanhaoService.fanhaoSearch(map);
     }
 
 }

@@ -4,6 +4,6 @@
 
 
     <select id="getTableDesign" resultType="com.sxlw.vo.SimpleTableDesign">
-        select COLUMN_NAME, column_comment from INFORMATION_SCHEMA.Columns where table_name=#{tableName}
+        select  COLUMN_NAME, COLUMN_COMMENT, COLUMN_DEFAULT from INFORMATION_SCHEMA.Columns where table_name=#{tableName}
     </select>
 </mapper>

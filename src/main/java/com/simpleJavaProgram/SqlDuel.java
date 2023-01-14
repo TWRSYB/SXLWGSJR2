@@ -5,7 +5,7 @@ import lombok.Builder;
 public class SqlDuel {
 
     public static void main(String[] args) {
-        //将字段装换为Json字符串对象();
+//        将字段装换为Json字符串对象();
 //        将Excel数据装换为Json字符串对象();
 //        将Excel数据小写字段装换为Json字符串对象();
         将字段装换为CreateSql语句();
@@ -14,43 +14,46 @@ public class SqlDuel {
     }
 
     private static void 将Excel数据小写字段装换为Json字符串对象() {
-        String str = "keyActressNo\t2022121001\n" +
-                "nameStage\t如月ジュリ\n" +
-                "nameJpTrue\t未收录\n" +
-                "nameCn\t未收录\n" +
-                "nameEn\t未收录\n" +
-                "nameOther\t未收录\n" +
-                "birthYmd\t未收录\n" +
-                "birthCountry\t日本\n" +
-                "birthPlace\t未收录\n" +
-                "xmAppearanceIndex\t8\n" +
-                "xmAppearanceType\t未收录\n" +
-                "xmFaceType\t未收录\n" +
-                "xmSkinColor\t未收录\n" +
-                "xmLike\t未收录\n" +
-                "qzCharacter\t未收录\n" +
-                "txTallOrShort\t未收录\n" +
-                "txFatOrThin\t未收录\n" +
-                "txTitSize\t极小\n" +
-                "txLegsType\t微X型\n" +
-                "txLegsThickness\t较囵\n" +
-                "txHipType\t较囵\n" +
-                "txHipDistance\t0.5\n" +
-                "hxColor\t未收录\n" +
-                "hxType\t未收录\n" +
-                "hxWhiteTiger\t未收录\n" +
-                "scHeight\t未收录\n" +
-                "scWeight\t未收录\n" +
-                "scCup\t未收录\n" +
-                "scBust\t未收录\n" +
-                "cdDebutYmd\t未收录\n" +
-                "cdDebutAge\t未收录\n" +
-                "cdRetireYmd\t未收录\n" +
-                "cdRetireAge\t未收录\n" +
-                "cdPeriods\t未收录\n" +
-                "rcRecordTime\t20221210\n" +
+        String str = "fhSeries\tCaribbean\n" +
+                "fhSysFanhao\t180119-587\n" +
+                "fhPrimitiveFanhao\t011918-587\n" +
+                "ypSubSeries\t未收录\n" +
+                "ypFilmTitle\t僕の彼女が如月ジュリだったら ～主導権とチンコを握られている僕～\n" +
+                "ypIssueYmd\t未收录\n" +
+                "yyCoexistActressNum\t1\n" +
+                "yyActressNo\t2022121001\n" +
+                "yyActress\t如月ジュリ\n" +
+                "yyCoexistActorNum\t1\n" +
+                "yyActorNo\t一般男优\n" +
+                "yyLadyboyNum\t0\n" +
+                "yyLadyboyNo\t无\n" +
+                "yyBeastType\t无\n" +
+                "jqSceneType\t家庭\n" +
+                "jqRoleType\t夫妻\n" +
+                "jqStoryType\t夫妻性爱\n" +
+                "analSexLv\t无\n" +
+                "analEnemaLv\t无\n" +
+                "analInjectSemenLv\t无\n" +
+                "analCoexistPenisNum\t0\n" +
+                "analEndoscopyYn\t否\n" +
+                "xjInjectSemenLv\t内射\n" +
+                "xjCoexistPenisNum\t1\n" +
+                "xjEndoscopyVaginaYn\t否\n" +
+                "kjOralSexLv\t自愿口交\n" +
+                "kjMonthCoexistPenisNum\t9999\n" +
+                "kjMouthEjaculateLv\t无\n" +
+                "kjSwallowSemenLv\t无\n" +
+                "tsTieLv\t无\n" +
+                "tsWhiteTigerLv\t人工白虎\n" +
+                "tsFaceEjaculateLv\t无\n" +
+                "tsFemaleEjaculaYn\t否\n" +
+                "tsDrindManUrineYn\t否\n" +
+                "tsDrindWomanUrineYn\t否\n" +
+                "msResume\t \n" +
+                "msDetail\t \n" +
+                "rcRecordTime\t \n" +
                 "rcRecorder\twr\n" +
-                "rcLastModifiedTime\t20221210\n" +
+                "rcLastModifiedTime\t \n" +
                 "rcLastModifier\twr\n" +
                 "rcDataStatus\t1\n";
 
@@ -66,48 +69,16 @@ public class SqlDuel {
 
     private static void 将下划线转为驼峰() {
 
-        String str = "KEY_SERIES\n" +
-                "KEY_SYS_FANHAO\n" +
-                "FH_SUB_SERIES\n" +
-                "FH_PRIMITIVE_FANHAO\n" +
-                "FH_FILM_TITLE\n" +
-                "FH_ISSUE_YMD\n" +
-                "YY_COEXIST_ACTRESS_NUM\n" +
-                "YY_ACTRESS_NO\n" +
-                "YY_ACTRESS\n" +
-                "YY_COEXIST_ACTOR_NUM\n" +
-                "YY_ACTOR_NO\n" +
-                "YY_LADYBOY_NUM\n" +
-                "YY_LADYBOY_NO\n" +
-                "YY_BEAST_TYPE\n" +
-                "JQ_SCENE_TYPE\n" +
-                "JQ_ROLE_TYPE\n" +
-                "JQ_STORY_TYPE\n" +
-                "ANAL_SEX_LV\n" +
-                "ANAL_ENEMA_LV\n" +
-                "ANAL_INJECT_SEMEN_LV\n" +
-                "ANAL_COEXIST_PENIS_NUM\n" +
-                "ANAL_ENDOSCOPY_YN\n" +
-                "XJ_INJECT_SEMEN_LV\n" +
-                "XJ_COEXIST_PENIS_NUM\n" +
-                "XJ_ENDOSCOPY_VAGINA_YN\n" +
-                "KJ_ORAL_SEX_LV\n" +
-                "KJ_MONTH_COEXIST_PENIS_NUM\n" +
-                "KJ_MOUTH_EJACULATE_LV\n" +
-                "KJ_SWALLOW_SEMEN_LV\n" +
-                "TS_TIE_LV\n" +
-                "TS_WHITE_TIGER_LV\n" +
-                "TS_FACE_EJACULATE_LV\n" +
-                "TS_FEMALE_EJACULA_YN\n" +
-                "TS_DRIND_MAN_URINE_YN\n" +
-                "TS_DRIND_WOMAN_URINE_YN\n" +
-                "MS_RESUME\n" +
-                "MS_DETAIL\n" +
-                "RC_RECORD_TIME\n" +
-                "RC_RECORDER\n" +
-                "RC_LAST_MODIFIED_TIME\n" +
-                "RC_LAST_MODIFIER\n" +
-                "RC_DATA_STATUS\n";
+        String str = "XL_SIMPLE\n" +
+                "XL_FULL\n" +
+                "NM_JP\n" +
+                "NM_CN\n" +
+                "FH_PATTERN\n" +
+                "FH_RULER\n" +
+                "GD_PRODUCER\n" +
+                "GD_MOSAIC\n" +
+                "GD_SUB_SERIES\n" +
+                "GD_LOGO\n";
         String[] rows = str.split("\n");
         for (String row : rows) {
             String[] words = row.split("_");
@@ -206,41 +177,16 @@ public class SqlDuel {
     }
 
     private static void 将字段装换为CreateSql语句() {
-        String str = "KEY_SERIES\t系列\t由字典表维护(系列表D_SERIES)\n" +
-                "KEY_SYS_FANHAO\t系统番号\t系统录入番号加勒比和一本道进行了时间的顺序化\n" +
-                "FH_SUB_SERIES\t子系列\t由字典表维护(系列表D_SERIES)\n" +
-                "FH_PRIMITIVE_FANHAO\t原番号\t官方番号\n" +
-                "FH_FILM_TITLE\t影片名称\t\n" +
-                "FH_ISSUE_YMD\t发行年月日\t\n" +
-                "YY_COEXIST_ACTRESS_NUM\t同时女优数\t0,1,2,N\n" +
-                "YY_ACTRESS_NO\t女优列表\t关联表, 女演员表M_ACTRESS\n" +
-                "YY_ACTRESS\t女优\t\n" +
-                "YY_COEXIST_ACTOR_NUM\t同时男优数\t0,1,2,N\n" +
-                "YY_ACTOR_NO\t男优编号\t由字典表维护, 男演员表(D_ACTOR)\n" +
-                "YY_LADYBOY_NUM\t人妖数\t0,1,2,N\n" +
-                "YY_LADYBOY_NO\t人妖编号\t由字典表维护, 人妖表(D_LADYBOY)\n" +
-                "YY_BEAST_TYPE\t兽类\t狗,马,泥鳅,猪,蛇,其他\n" +
-                "JQ_SCENE_TYPE\t场景\t家庭, 户外, 综艺, 囚禁, 专业A片\n" +
-                "JQ_ROLE_TYPE\t角色\t妻子, 女儿, 老师, 下属, 上司, 性奴, 侦查官, 学生, 主人, 专业A片\n" +
-                "JQ_STORY_TYPE\t剧情\t夫妻性爱, 轮乱, 强奸, 性虐, 兽交, 侦查官, 专业A片\n" +
-                "ANAL_SEX_LV\t肛交级别\t无肛交, 1人肛交, 多人肛交\n" +
-                "ANAL_ENEMA_LV\t肛门灌肠级别\t无灌肠, 简单灌肠, 大量灌肠\n" +
-                "ANAL_INJECT_SEMEN_LV\t肛门灌精级别\t无, 内射, 轮射\n" +
-                "ANAL_COEXIST_PENIS_NUM\t肛门同时插入鸡巴数\t0,1,2,3,4\n" +
-                "ANAL_ENDOSCOPY_YN\t肛门内窥与否\t是, 否\n" +
-                "XJ_INJECT_SEMEN_LV\t阴道灌精级别\t无, 内射, 轮射\n" +
-                "XJ_COEXIST_PENIS_NUM\t阴道同时插入鸡巴数\t0,1,2,3,4\n" +
-                "XJ_ENDOSCOPY_VAGINA_YN\t内窥阴道与否\t是, 否\n" +
-                "KJ_ORAL_SEX_LV\t口交级别\t无,自愿口交,强制口交,深喉\n" +
-                "KJ_MONTH_COEXIST_PENIS_NUM\t嘴同时插入鸡巴数\t0,1,2,3,4\n" +
-                "KJ_MOUTH_EJACULATE_LV\t口爆级别\t无,1人口爆,多人口爆\n" +
-                "KJ_SWALLOW_SEMEN_LV\t吞精级别\t无,吞1人精,吞多人精\n" +
-                "TS_TIE_LV\t捆绑级别\t无捆绑, 手脚捆绑, 全身捆绑, 支架捆绑\n" +
-                "TS_WHITE_TIGER_LV\t白虎级别\t非白虎, 人工白虎, 天然白虎\n" +
-                "TS_FACE_EJACULATE_LV\t颜射级别\t无,1人颜射, 多人颜射\n" +
-                "TS_FEMALE_EJACULA_YN\t潮吹与否\t是,否\n" +
-                "TS_DRIND_MAN_URINE_YN\t饮男尿\t是,否\n" +
-                "TS_DRIND_WOMAN_URINE_YN\t饮女尿\t是,否\n" +
+        String str = "XL_SIMPLE\t简称\t\n" +
+                "XL_FULL\t全称\t\n" +
+                "NM_JP\t日文名\t\n" +
+                "NM_CN\t中文名\t\n" +
+                "FH_PATTERN\t番号样式\t\n" +
+                "FH_RULER\t番号规则\t\n" +
+                "GD_PRODUCER\t厂商\t\n" +
+                "GD_MOSAIC\t马赛克\t骑兵, 步兵\n" +
+                "GD_SUB_SERIES\t子系列\t\n" +
+                "GD_LOGO\t图标\t\n" +
                 "MS_RESUME\t简述\t\n" +
                 "MS_DETAIL\t详细\t\n" +
                 "RC_RECORD_TIME\t收录时间\t\n" +
@@ -259,8 +205,12 @@ public class SqlDuel {
             }
             if (fields[0].endsWith("NUM")){
                 System.out.print("\t\t\tINT" + "\t\t\t\t\tNOT NULL"+ "\t\tDEFAULT 9999\t\t\t");
+            } else if (fields[0].equals("MS_RESUME")){
+                System.out.print("\t\t\tVARCHAR(300)" + "\t\tNOT NULL"+ "\t\tDEFAULT ' '\t\t\t\t");
+            } else if (fields[0].equals("MS_DETAIL")){
+                System.out.print("\t\t\tVARCHAR(1000)" + "\t\tNOT NULL"+ "\t\tDEFAULT ' '\t\t\t\t");
             } else if (fields[0].endsWith("LV")){
-                System.out.print("\t\t\tCHAR(1)" + "\t\t\t\tNOT NULL"+ "\t\tDEFAULT ' '\t\t\t\t");
+                System.out.print("\t\t\tVARCHAR(30)" + "\t\t\tNOT NULL"+ "\t\tDEFAULT ' '\t\t\t\t");
             } else if (fields[0].endsWith("STATUS")){
                 System.out.print("\t\t\tCHAR(1)" + "\t\t\t\tNOT NULL"+ "\t\tDEFAULT '0'\t\t\t\t");
             } else if (fields[0].endsWith("TYPE")){

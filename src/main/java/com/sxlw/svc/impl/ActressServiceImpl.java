@@ -91,7 +91,6 @@ public class ActressServiceImpl extends ServiceImpl<ActressMapper, Actress> impl
 
     /**
      * 获取表结构
-     *
      * @return
      */
     @Override
@@ -297,7 +296,6 @@ public class ActressServiceImpl extends ServiceImpl<ActressMapper, Actress> impl
             resVo.setObj(null);
             return resVo;
         }
-        String[] imgExtensions = new String[]{"jpg", "png", "gif", "jpeg", "bmp", "tiff"};
         List<Actress> actresseList;
         if ("match".equals(model)) {
             log.info("艺名全匹配搜索");
@@ -308,6 +306,7 @@ public class ActressServiceImpl extends ServiceImpl<ActressMapper, Actress> impl
             log.info("模糊搜索模式");
             actresseList = actressMapper.nameLikeSearch(name);
         }
+        String[] imgExtensions = new String[]{"jpg", "png", "gif", "jpeg", "bmp", "tiff"};
         List<ActressNamePicture> actressNamePictureList = new ArrayList<>();
         for (Actress actress : actresseList) {
             ActressNamePicture actressNamePicture = BeanUtil.copy(actress, ActressNamePicture.class);

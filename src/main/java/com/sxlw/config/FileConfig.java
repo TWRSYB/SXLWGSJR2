@@ -20,6 +20,7 @@ public class FileConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/actressHomePath/**").addResourceLocations("file:E:\\00.日本女优/");
+        registry.addResourceHandler("/fanhaoHomePath/**").addResourceLocations("file:E:\\00.日本无码/");
         WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 

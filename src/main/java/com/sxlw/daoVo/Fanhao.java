@@ -24,22 +24,16 @@ public class Fanhao extends Model {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 系列: 由字典表维护(系列表D_SERIES)
+     * 系列: 字典表(系列表D_SERIES)
      */
-    @TableId("KEY_SERIES")
-    private String keySeries;
+    @TableId("FH_SERIES")
+    private String fhSeries;
 
     /**
      * 系统番号: 系统录入番号加勒比和一本道进行了时间的顺序化
      */
-    @TableField("KEY_SYS_FANHAO")
-    private String keySysFanhao;
-
-    /**
-     * 子系列: 由字典表维护(系列表D_SERIES)
-     */
-    @TableField("FH_SUB_SERIES")
-    private String fhSubSeries;
+    @TableField("FH_SYS_FANHAO")
+    private String fhSysFanhao;
 
     /**
      * 原番号: 官方番号
@@ -48,16 +42,22 @@ public class Fanhao extends Model {
     private String fhPrimitiveFanhao;
 
     /**
+     * 子系列: 字典表(系列表D_SERIES)
+     */
+    @TableField("YP_SUB_SERIES")
+    private String ypSubSeries;
+
+    /**
      * 影片名称
      */
-    @TableField("FH_FILM_TITLE")
-    private String fhFilmTitle;
+    @TableField("YP_FILM_TITLE")
+    private String ypFilmTitle;
 
     /**
      * 发行年月日
      */
-    @TableField("FH_ISSUE_YMD")
-    private String fhIssueYmd;
+    @TableField("YP_ISSUE_YMD")
+    private String ypIssueYmd;
 
     /**
      * 同时女优数: 0,1,2,N
@@ -66,7 +66,7 @@ public class Fanhao extends Model {
     private Integer yyCoexistActressNum;
 
     /**
-     * 女优列表: 关联表, 女演员表M_ACTRESS
+     * 女优列表: 关联表(女演员表M_ACTRESS)
      */
     @TableField("YY_ACTRESS_NO")
     private String yyActressNo;
@@ -102,7 +102,7 @@ public class Fanhao extends Model {
     private String yyLadyboyNo;
 
     /**
-     * 兽类: 狗,马,泥鳅,猪,蛇,其他
+     * 兽类: 无,狗,马,泥鳅,猪,蛇,其他
      */
     @TableField("YY_BEAST_TYPE")
     private String yyBeastType;
@@ -126,13 +126,13 @@ public class Fanhao extends Model {
     private String jqStoryType;
 
     /**
-     * 肛交级别: 无肛交, 1人肛交, 多人肛交
+     * 肛交级别: 无, 1人肛交, 多人肛交
      */
     @TableField("ANAL_SEX_LV")
     private String analSexLv;
 
     /**
-     * 肛门灌肠级别: 无灌肠, 简单灌肠, 大量灌肠
+     * 肛门灌肠级别: 无, 简单灌肠, 大量灌肠
      */
     @TableField("ANAL_ENEMA_LV")
     private String analEnemaLv;
@@ -274,5 +274,6 @@ public class Fanhao extends Model {
      */
     @TableField("RC_DATA_STATUS")
     private String rcDataStatus;
+
 
 }

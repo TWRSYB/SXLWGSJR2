@@ -19,4 +19,6 @@ import java.util.List;
 public interface FanhaoMapper extends BaseMapper<Fanhao> {
 
     List<SimpleTableDesign> getTableDesign();
+
+    List<Fanhao> likeSearch(String keyWord);
 }

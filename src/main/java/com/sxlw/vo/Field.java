@@ -12,7 +12,7 @@ import java.util.Map;
 public class Field {
     private String columnName;
     private String columnComment;
-    private String type; //text, lv, type, ymd
+    private String type; //text, textArea, lv, type, ymd
     private HashMap<String, String> lvs;
     private ArrayList<String> types;
     private String columnDefault;

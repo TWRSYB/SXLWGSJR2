@@ -6,4 +6,9 @@
     <select id="getTableDesign" resultType="com.sxlw.vo.SimpleTableDesign">
         select COLUMN_NAME, column_comment from INFORMATION_SCHEMA.Columns where table_name='M_FANHAO'
     </select>
+    <select id="likeSearch" resultType="com.sxlw.daoVo.Fanhao">
+        SELECT * FROM M_FANHAO A
+        WHERE A.FH_PRIMITIVE_FANHAO LIKE CONCAT('%', #{keyWord}, '%')
+                OR A.YP_FILM_TITLE LIKE CONCAT('%', #{keyWord}, '%')
+    </select>
 </mapper>

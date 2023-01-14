@@ -12,11 +12,11 @@
     </select>
     <select id="nameLikeSearch" resultType="com.sxlw.daoVo.Actress">
         SELECT * FROM M_ACTRESS A
-        WHERE A.NAME_STAGE LIKE CONCAT('%', #{nowDate}, '%')
-            OR A.NAME_JP_TRUE  LIKE CONCAT('%', #{nowDate}, '%')
-            OR A.NAME_CN  LIKE CONCAT('%', #{nowDate}, '%')
-            OR A.NAME_EN  LIKE CONCAT('%', #{nowDate}, '%')
-            OR A.NAME_OTHER  LIKE CONCAT('%', #{nowDate}, '%')
+        WHERE A.NAME_STAGE LIKE CONCAT('%', #{name}, '%')
+            OR A.NAME_JP_TRUE  LIKE CONCAT('%', #{name}, '%')
+            OR A.NAME_CN  LIKE CONCAT('%', #{name}, '%')
+            OR A.NAME_EN  LIKE CONCAT('%', #{name}, '%')
+            OR A.NAME_OTHER  LIKE CONCAT('%', #{name}, '%')
     </select>
 
 
