@@ -3,9 +3,8 @@ package com.sxlw.daoVo;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
-
-import java.sql.Blob;
 import java.time.LocalDateTime;
+import java.sql.Blob;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,26 +15,26 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author wr
- * @since 2023-01-15
+ * @since 2023-01-30
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-@TableName("d_producer")
-public class Producer extends Model {
+@TableName("d_series")
+public class Series extends Model {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 投资者
+     * 简称
      */
-    @TableField("CS_INVESTOR")
-    private String csInvestor;
+    @TableId("XL_SIMPLE")
+    private String xlSimple;
 
     /**
-     * 厂商
+     * 全称
      */
-    @TableId("CS_PRODUCER")
-    private String csProducer;
+    @TableField("XL_FULL")
+    private String xlFull;
 
     /**
      * 日文名
@@ -56,28 +55,40 @@ public class Producer extends Model {
     private String wzGw;
 
     /**
+     * 番号样式
+     */
+    @TableField("FH_PATTERN")
+    private String fhPattern;
+
+    /**
+     * 番号规则
+     */
+    @TableField("FH_RULER")
+    private String fhRuler;
+
+    /**
+     * 厂商
+     */
+    @TableField("GD_PRODUCER")
+    private String gdProducer;
+
+    /**
+     * 马赛克: 骑兵, 步兵
+     */
+    @TableField("GD_MOSAIC")
+    private String gdMosaic;
+
+    /**
+     * 子系列
+     */
+    @TableField("GD_SUB_SERIES")
+    private String gdSubSeries;
+
+    /**
      * 图标
      */
     @TableField("IMG_LOGO")
-    private String imgLogo;
-
-    /**
-     * 运营开始年月日
-     */
-    @TableField("YY_START_YMD")
-    private String yyStartYmd;
-
-    /**
-     * 运营停止年月日
-     */
-    @TableField("YY_STOP_YMD")
-    private String yyStopYmd;
-
-    /**
-     * 系列
-     */
-    @TableField("XL_SERIES")
-    private String xlSeries;
+    private Blob imgLogo;
 
     /**
      * 简述
@@ -120,6 +131,5 @@ public class Producer extends Model {
      */
     @TableField("RC_DATA_STATUS")
     private String rcDataStatus;
-
 
 }

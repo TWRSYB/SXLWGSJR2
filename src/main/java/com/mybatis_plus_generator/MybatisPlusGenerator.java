@@ -74,7 +74,7 @@ public class MybatisPlusGenerator {
         strategy.setRestControllerStyle(true);
         strategy.setEntityLombokModel(true);
 
-        String  tableNames="d_producer";
+        String  tableNames="d_series";
         strategy.setInclude(tableNames.split(","));
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix("d_");

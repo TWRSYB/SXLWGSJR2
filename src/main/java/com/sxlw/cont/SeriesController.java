@@ -2,7 +2,8 @@ package com.sxlw.cont;
 
 
 import com.sxlw.daoVo.Producer;
-import com.sxlw.svc.ProducerService;
+import com.sxlw.daoVo.Series;
+import com.sxlw.svc.SeriesService;
 import com.sxlw.vo.ResVo;
 import com.sxlw.vo.TableDesign;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,30 +22,29 @@ import java.util.Map;
  * </p>
  *
  * @author wr
- * @since 2023-01-15
+ * @since 2023-01-30
  */
 @RestController
-@RequestMapping("/producer")
-public class ProducerController {
+@RequestMapping("/series")
+public class SeriesController {
 
     @Autowired
-    private ProducerService producerService;
-
-
-    @PostMapping("/getProducerList")
-    public ResVo<List<Producer>> getProducerList(){
-        return producerService.getProducerList();
-    }
+    private SeriesService seriesService;
 
     @PostMapping("/getTableDesign")
     public ResVo<TableDesign> getTableDesign(@RequestBody Map map){
-        return producerService.getTableDesign();
+        return seriesService.getTableDesign();
+    }
+
+    @PostMapping("/getSeriesList")
+    public ResVo<List<Series>> getSeriesList(){
+        return seriesService.getSeriesList();
     }
 
 
-    @PostMapping("/updateProducer")
-    public ResVo<Producer> updateProducer(@RequestBody Producer producer){
-        return producerService.updateProducer(producer);
+    @PostMapping("/updateSeries")
+    public ResVo<Series> updateSeries(@RequestBody Series series){
+        return seriesService.updateSeries(series);
     }
 
 }

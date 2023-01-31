@@ -3,9 +3,10 @@ package com.sxlw.svc.impl;
 import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.sxlw.daoVo.Producer;
-import com.sxlw.mapper.ProducerMapper;
+import com.sxlw.daoVo.Series;
+import com.sxlw.mapper.SeriesMapper;
 import com.sxlw.mapper.TableMapper;
-import com.sxlw.svc.ProducerService;
+import com.sxlw.svc.SeriesService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.sxlw.util.FieldUtil;
 import com.sxlw.vo.*;
@@ -25,83 +26,71 @@ import java.util.List;
  * </p>
  *
  * @author wr
- * @since 2023-01-15
+ * @since 2023-01-30
  */
 @Service
-public class ProducerServiceImpl extends ServiceImpl<ProducerMapper, Producer> implements ProducerService {
+public class SeriesServiceImpl extends ServiceImpl<SeriesMapper, Series> implements SeriesService {
+
 
     private static final Logger log = LoggerFactory.getLogger(ActressServiceImpl.class);
+
     @Autowired
     private TableMapper tableMapper;
 
     @Autowired
-    private ProducerMapper producerMapper;
-
-
-    @Override
-    public ResVo<List<Producer>> getProducerList() {
-        ResVo<List<Producer>> resVo = new ResVo<>();
-
-        List<Producer> producerList = producerMapper.selectList(new QueryWrapper<>());
-
-        resVo.setCode("200");
-        resVo.setMsg("获取厂商列表成功");
-        resVo.setObj(producerList);
-        return resVo;
-
-    }
+    private SeriesMapper seriesMapper;
 
     @Override
     public ResVo<TableDesign> getTableDesign() {
 
-//    "csProducer": "厂商",
-//    "csInvestor": "投资者",
+//            "xlFull": "全称"
+//            "xlSimple": "简称",
 
-//    "nmJp": "日文名",
-//    "nmCn": "中文名",
+//            "nmJp": "日文名",
+//            "nmCn": "中文名",
 
-//    "wzGw": "官网",
+//            "wzGw": "官网",
 
+//            "fhPattern": "番号样式",
+//            "fhRuler": "番号规则",
 
-//    "imgLogo": "图标",
+//            "gdProducer": "厂商",
+//            "gdSubSeries": "子系列",
+//            "gdMosaic": "马赛克",
 
-//    "yyStartYmd": "运营开始年月日",
-//    "yyStopYmd": "运营停止年月日",
+//            "imgLogo": "图标",
 
-//    "xlSeries": "系列"
+//            "msResume": "简述",
+//            "msDetail": "详细",
 
-//    "msDetail": "详细",
-//    "msResume": "简述",
-
-//    "rcDataStatus": "数据状态",
-//    "rcLastModifiedTime": "最后修改时间",
-//    "rcLastModifier": "最后修改人",
-//    "rcRecorder": "收录人",
-//    "rcRecordTime": "收录时间",
+//            "rcRecorder": "收录人",
+//            "rcRecordTime": "收录时间",
+//            "rcLastModifier": "最后修改人",
+//            "rcLastModifiedTime": "最后修改时间",
+//            "rcDataStatus": "数据状态",
 
         /* 创建数据结构 Start */
-        String[] csSelected = {"csProducer"};
+        String[] xlSelected = {"xlFull"};
         String[] nmSelected = {"nmJp", "nmCn"};
         String[] wzSelected = {};
+        String[] fhSelected = {"fhPattern"};
+        String[] gdSelected = {"gdProducer"};
         String[] imgSelected = {"imgLogo"};
-        String[] yySelected = {"yyStartYmd", "yyStopYmd"};
-        String[] xlSelected = {};
         String[] msSelected = {};
         String[] rcSelected = {};
 
-        ArrayList<Field> csFields = new ArrayList<>();
-        FieldPackage csPackage = new FieldPackage("cs", "厂商", csFields, Arrays.asList(csSelected));
+        ArrayList<Field> xlFields = new ArrayList<>();
+        FieldPackage xlPackage = new FieldPackage("xl", "系列", xlFields, Arrays.asList(xlSelected));
         ArrayList<Field> nmFields = new ArrayList<>();
         FieldPackage nmPackage = new FieldPackage("nm", "名称", nmFields, Arrays.asList(nmSelected));
         ArrayList<Field> imgFields = new ArrayList<>();
         FieldPackage imgPackage = new FieldPackage("img", "图标", imgFields, Arrays.asList(imgSelected));
         ArrayList<Field> wzFields = new ArrayList<>();
         FieldPackage wzPackage = new FieldPackage("wz", "网址", wzFields, Arrays.asList(wzSelected));
-        ArrayList<Field> yyFields = new ArrayList<>();
-        FieldPackage yyPackage = new FieldPackage("yy", "运营", yyFields, Arrays.asList(yySelected));
-        ArrayList<Field> xlFields = new ArrayList<>();
-        FieldPackage xlPackage = new FieldPackage("xl", "系列", xlFields, Arrays.asList(xlSelected));
-
+        ArrayList<Field> fhFields = new ArrayList<>();
+        FieldPackage fhPackage = new FieldPackage("fh", "番号", fhFields, Arrays.asList(fhSelected));
+        ArrayList<Field> gdFields = new ArrayList<>();
+        FieldPackage gdPackage = new FieldPackage("gd", "更多", gdFields, Arrays.asList(gdSelected));
         ArrayList<Field> msFields = new ArrayList<>();
         FieldPackage msPackage = new FieldPackage("ms", "描述", msFields, Arrays.asList(msSelected));
         ArrayList<Field> rcFields = new ArrayList<>();
@@ -109,12 +98,12 @@ public class ProducerServiceImpl extends ServiceImpl<ProducerMapper, Producer> i
 
 
         ArrayList<FieldPackage> fieldPackages = new ArrayList<>();
-        fieldPackages.add(csPackage);
-        fieldPackages.add(nmPackage);
-        fieldPackages.add(wzPackage);
-        fieldPackages.add(imgPackage);
-        fieldPackages.add(yyPackage);
         fieldPackages.add(xlPackage);
+        fieldPackages.add(nmPackage);
+        fieldPackages.add(imgPackage);
+        fieldPackages.add(wzPackage);
+        fieldPackages.add(fhPackage);
+        fieldPackages.add(gdPackage);
         fieldPackages.add(msPackage);
         fieldPackages.add(rcPackage);
 
@@ -122,7 +111,7 @@ public class ProducerServiceImpl extends ServiceImpl<ProducerMapper, Producer> i
         tableDesign.setFieldPackages(fieldPackages);
         /* 创建数据结构 End */
 
-        List<SimpleTableDesign> simpleTableDesigns = tableMapper.getTableDesign("D_PRODUCER");    // 查询表结构
+        List<SimpleTableDesign> simpleTableDesigns = tableMapper.getTableDesign("D_SERIES");    // 查询表结构
 
         // 遍历字段
         for (SimpleTableDesign simpleTableDesign : simpleTableDesigns) {
@@ -166,18 +155,18 @@ public class ProducerServiceImpl extends ServiceImpl<ProducerMapper, Producer> i
 
 
             Field field = new Field(columnName, columnComment, type, lvs, types, columnDefault);
-            if (columnName.startsWith("cs")) {
-                csFields.add(field);
+            if (columnName.startsWith("xl")) {
+                xlFields.add(field);
             } else if (columnName.startsWith("nm")) {
                 nmFields.add(field);
             } else if (columnName.startsWith("img")) {
                 imgFields.add(field);
             } else if (columnName.startsWith("wz")) {
                 wzFields.add(field);
-            } else if (columnName.startsWith("yy")) {
-                yyFields.add(field);
-            } else if (columnName.startsWith("xl")) {
-                xlFields.add(field);
+            } else if (columnName.startsWith("fh")) {
+                fhFields.add(field);
+            } else if (columnName.startsWith("gd")) {
+                gdFields.add(field);
 
             } else if (columnName.startsWith("ms")) {
                 msFields.add(field);
@@ -192,21 +181,28 @@ public class ProducerServiceImpl extends ServiceImpl<ProducerMapper, Producer> i
         resVo.setMsg("获取表设计成功");
         resVo.setObj(tableDesign);
         return resVo;
+
     }
 
-    /**
-     * 更新厂商
-     * @param producer
-     * @return
-     */
     @Override
-    public ResVo<Producer> updateProducer(Producer producer) {
+    public ResVo<List<Series>> getSeriesList() {
+        ResVo<List<Series>> resVo = new ResVo<>();
 
-        producerMapper.updateById(producer);
-        ResVo<Producer> resVo = new ResVo<>();
+        List<Series> seriesList = seriesMapper.selectList(new QueryWrapper<>());
+
         resVo.setCode("200");
-        resVo.setMsg("更新厂商成功");
-        resVo.setObj(producer);
+        resVo.setMsg("获取系列列表成功");
+        resVo.setObj(seriesList);
+        return resVo;
+    }
+
+    @Override
+    public ResVo<Series> updateSeries(Series series) {
+        seriesMapper.updateById(series);
+        ResVo<Series> resVo = new ResVo<>();
+        resVo.setCode("200");
+        resVo.setMsg("更新系列成功");
+        resVo.setObj(series);
         return resVo;
     }
 }

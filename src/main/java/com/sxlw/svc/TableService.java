@@ -1,5 +1,9 @@
 package com.sxlw.svc;
 
+import com.sxlw.vo.ResVo;
+import com.sxlw.vo.SimpleTableDesign;
+
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -12,4 +16,5 @@ import java.util.Map;
  */
 public interface TableService {
     Map getTableDesign(String tableName);
+    ResVo<List<SimpleTableDesign>> getTableDesign(Map map);
 }

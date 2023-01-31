@@ -1,6 +1,6 @@
 package com.sxlw.svc;
 
-import com.sxlw.daoVo.Producer;
+import com.sxlw.daoVo.Series;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.sxlw.vo.ResVo;
 import com.sxlw.vo.TableDesign;
@@ -13,13 +13,13 @@ import java.util.List;
  * </p>
  *
  * @author wr
- * @since 2023-01-15
+ * @since 2023-01-30
  */
-public interface ProducerService extends IService<Producer> {
-
-    ResVo<List<Producer>> getProducerList();
+public interface SeriesService extends IService<Series> {
 
     ResVo<TableDesign> getTableDesign();
 
-    ResVo<Producer> updateProducer(Producer producer);
+    ResVo<List<Series>> getSeriesList();
+
+    ResVo<Series> updateSeries(Series series);
 }

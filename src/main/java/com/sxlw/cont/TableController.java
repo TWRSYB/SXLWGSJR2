@@ -4,6 +4,8 @@ package com.sxlw.cont;
 import com.sxlw.daoVo.Fanhao;
 import com.sxlw.svc.FanhaoService;
 import com.sxlw.svc.TableService;
+import com.sxlw.vo.ResVo;
+import com.sxlw.vo.SimpleTableDesign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +27,12 @@ public class TableController {
     @Autowired
     private TableService tableService;
 
+
+
+    @PostMapping("/postTableDesign")
+    public ResVo<List<SimpleTableDesign>> getTableDesign(@RequestBody Map map){
+        return tableService.getTableDesign(map);
+    }
 
 
     @GetMapping("/getTableDesign")
