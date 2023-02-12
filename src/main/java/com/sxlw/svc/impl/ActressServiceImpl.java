@@ -6,12 +6,9 @@ import com.sxlw.daoVo.Actress;
 import com.sxlw.mapper.ActressMapper;
 import com.sxlw.svc.ActressService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.sxlw.util.BeanUtil;
-import com.sxlw.util.DateUtil;
+import com.sxlw.util.*;
 
 
-import com.sxlw.util.FieldUtil;
-import com.sxlw.util.StringUtil;
 import com.sxlw.vo.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -157,6 +154,7 @@ public class ActressServiceImpl extends ServiceImpl<ActressMapper, Actress> impl
         String[] txSelected = {"txFatOrThin"};
         String[] hxSelected = {"hxType"};
         String[] scSelected = {};
+        String[] zlSelected = {};
         String[] cdSelected = {"cdDebutYmd", "cdDebutAge"};
         String[] msSelected = {};
         String[] rcSelected = {};
@@ -177,6 +175,8 @@ public class ActressServiceImpl extends ServiceImpl<ActressMapper, Actress> impl
         FieldPackage hxPackage = new FieldPackage("hx", "户型", hxFields, Arrays.asList(hxSelected));
         ArrayList<Field> scFields = new ArrayList<>();
         FieldPackage scPackage = new FieldPackage("sc", "身材", scFields, Arrays.asList(scSelected));
+        ArrayList<Field> zlFields = new ArrayList<>();
+        FieldPackage zlPackage = new FieldPackage("zl", "资料", zlFields, Arrays.asList(zlSelected));
         ArrayList<Field> cdFields = new ArrayList<>();
         FieldPackage cdPackage = new FieldPackage("cd", "出道", cdFields, Arrays.asList(cdSelected));
         ArrayList<Field> msFields = new ArrayList<>();
@@ -194,6 +194,7 @@ public class ActressServiceImpl extends ServiceImpl<ActressMapper, Actress> impl
         fieldPackages.add(txPackage);
         fieldPackages.add(hxPackage);
         fieldPackages.add(scPackage);
+        fieldPackages.add(zlPackage);
         fieldPackages.add(cdPackage);
         fieldPackages.add(msPackage);
         fieldPackages.add(rcPackage);
@@ -258,6 +259,8 @@ public class ActressServiceImpl extends ServiceImpl<ActressMapper, Actress> impl
                 hxFields.add(field);
             } else if (columnName.startsWith("sc")) {
                 scFields.add(field);
+            } else if (columnName.startsWith("zl")) {
+                zlFields.add(field);
             } else if (columnName.startsWith("cd")) {
                 cdFields.add(field);
             } else if (columnName.startsWith("ms")) {
@@ -449,13 +452,17 @@ public class ActressServiceImpl extends ServiceImpl<ActressMapper, Actress> impl
             if (actressName_Path.mkdir()) {
                 log.info("创建女优艺名目录成功: {}", actress.getNameStage());
             }
-            File headPic_Path = new File(actressHome_path, "headPid");
+            File headPic_Path = new File(actressHome_path, "headPic");
             if (headPic_Path.mkdir()) {
                 log.info("头像目录创建成功: {}", "headPic");
             }
             File fullBodyPic_Path = new File(actressHome_path, "fullBodyPic");
             if (fullBodyPic_Path.mkdir()) {
                 log.info("全身照目录创建成功: {}", "fullBodyPic");
+            }
+            File houseTypePic_Path = new File(actressHome_path, "houseTypePic");
+            if (houseTypePic_Path.mkdir()) {
+                log.info("户型图目录创建成功: {}", "houseTypePic");
             }
         }
 
@@ -506,16 +513,11 @@ public class ActressServiceImpl extends ServiceImpl<ActressMapper, Actress> impl
         int i = actressMapper.updateById(actress);
         if (i == 1) {
             log.info("更新成功");
-            resVo.setCode("200");
-            resVo.setMsg("更新成功");
-            resVo.setObj(null);
+            return ResVoUtil.success("更新女优成功", actress);
         } else {
             log.info("更新失败");
-            resVo.setCode("500");
-            resVo.setMsg("更新失败");
-            resVo.setObj(null);
+            return ResVoUtil.fail("更新失败");
         }
 
-        return resVo;
     }
 }

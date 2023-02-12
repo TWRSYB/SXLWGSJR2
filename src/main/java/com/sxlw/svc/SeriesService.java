@@ -22,4 +22,6 @@ public interface SeriesService extends IService<Series> {
     ResVo<List<Series>> getSeriesList();
 
     ResVo<Series> updateSeries(Series series);
+
+    ResVo<Series> gnrtSeries(Series series);
 }

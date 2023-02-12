@@ -26,4 +26,8 @@ public interface FanhaoService extends IService<Fanhao> {
     ResVo<TableDesign> getTableDesign();
 
     ResVo<List<FanhaoMix>> fanhaoSearch(Map<String, String> map);
+
+    ResVo<Fanhao> gnrtFanhao(Fanhao fanhao);
+
+    ResVo<Fanhao> updateFanhao(Fanhao fanhao);
 }

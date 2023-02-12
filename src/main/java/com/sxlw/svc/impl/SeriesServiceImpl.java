@@ -9,6 +9,8 @@ import com.sxlw.mapper.TableMapper;
 import com.sxlw.svc.SeriesService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.sxlw.util.FieldUtil;
+import com.sxlw.util.ResVoUtil;
+import com.sxlw.util.StringUtil;
 import com.sxlw.vo.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -196,6 +198,12 @@ public class SeriesServiceImpl extends ServiceImpl<SeriesMapper, Series> impleme
         return resVo;
     }
 
+
+    /**
+     * 更新系列
+     * @param series
+     * @return
+     */
     @Override
     public ResVo<Series> updateSeries(Series series) {
         seriesMapper.updateById(series);
@@ -204,5 +212,30 @@ public class SeriesServiceImpl extends ServiceImpl<SeriesMapper, Series> impleme
         resVo.setMsg("更新系列成功");
         resVo.setObj(series);
         return resVo;
+    }
+
+
+    /**
+     * 添加新系列
+     * @param series
+     * @return
+     */
+    @Override
+    public ResVo<Series> gnrtSeries(Series series) {
+        if (StringUtil.isEmpty(series.getXlSimple())){
+            return ResVoUtil.fail("系列简称不能为空");
+        }
+        if (StringUtil.isEmpty(series.getXlFull())){
+            return ResVoUtil.fail("系列全称不能为空");
+        }
+        if (StringUtil.isEmpty(series.getGdMosaic())){
+            return ResVoUtil.fail("马赛克类型不能为空");
+        }
+        if (StringUtil.isEmpty(series.getGdProducer())){
+            return ResVoUtil.fail("制片商不能为空");
+        }
+        series.setRcDataStatus("1");
+        seriesMapper.insert(series);
+        return ResVoUtil.success("生成系列成功", series);
     }
 }

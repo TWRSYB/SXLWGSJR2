@@ -21,7 +21,6 @@ import lombok.EqualsAndHashCode;
 @TableName("m_actress")
 public class Actress extends Model {
 
-
     private static final long serialVersionUID = 1L;
 
     /**
@@ -67,6 +66,12 @@ public class Actress extends Model {
     private String birthYmd;
 
     /**
+     * 民族
+     */
+    @TableField("BIRTH_ETHNIC")
+    private String birthEthnic;
+
+    /**
      * 国家: 由字典表维护
      */
     @TableField("BIRTH_COUNTRY")
@@ -97,10 +102,22 @@ public class Actress extends Model {
     private String xmFaceType;
 
     /**
-     * 肤色: 未收录, 黑, 黄, 白, 粉
+     * 肤色: 0-未收录,1-黑,2-黑棕,3-黄棕,4-黄,5-白,6-粉白
      */
     @TableField("XM_SKIN_COLOR")
     private String xmSkinColor;
+
+    /**
+     * 脸型比例: 长额颧脸巴值.以脸部最宽处为5
+     */
+    @TableField("XM_FACE_BILI")
+    private String xmFaceBili;
+
+    /**
+     * 额鼻颌: 微J型,J型,I型,微C型,C型
+     */
+    @TableField("XM_EBIHE_TYPE")
+    private String xmEbiheType;
 
     /**
      * 印象
@@ -113,6 +130,30 @@ public class Actress extends Model {
      */
     @TableField("QZ_CHARACTER")
     private String qzCharacter;
+
+    /**
+     * 标致: 1-不标致,2-一般,3-标致,4-极标致
+     */
+    @TableField("QZ_BIAOZHI_LV")
+    private String qzBiaozhiLv;
+
+    /**
+     * 可爱: 1-不可爱,2-较可爱,3-很可爱,4-超可爱
+     */
+    @TableField("QZ_CUTE_LV")
+    private String qzCuteLv;
+
+    /**
+     * 冷热: 极冷,较冷,正常,较热,极热
+     */
+    @TableField("QZ_COLDHOT_TYPE")
+    private String qzColdhotType;
+
+    /**
+     * 柔弱: 1-一般,2-较柔弱,3-极柔弱
+     */
+    @TableField("QZ_WEAK_LV")
+    private String qzWeakLv;
 
     /**
      * 高低: 未收录, 很矮, 较矮, 中等, 较高, 很高
@@ -157,7 +198,7 @@ public class Actress extends Model {
     private String txHipDistance;
 
     /**
-     * 颜色: 未收录, 黑色, 肤色, 粉色
+     * 颜色: 0-未收录,1-黑,2-黑棕,3-黄棕,4-黄,5-白,6-粉白
      */
     @TableField("HX_COLOR")
     private String hxColor;
@@ -199,6 +240,30 @@ public class Actress extends Model {
     private String scBust;
 
     /**
+     * 血型: A,B,AB,O
+     */
+    @TableField("ZL_BLOOD_TYPE")
+    private String zlBloodType;
+
+    /**
+     * 星座: ♒水瓶座,♓双鱼座,♈白羊座,♉金牛座,♊双子座,♋巨蟹座,♌狮子座,♍处女座,♎天秤座,♏天蝎座,♐射手座,♑摩羯座
+     */
+    @TableField("ZL_XINGZUO")
+    private String zlXingzuo;
+
+    /**
+     * 爱好
+     */
+    @TableField("ZL_HOBBY")
+    private String zlHobby;
+
+    /**
+     * 事务所
+     */
+    @TableField("ZL_AGENCY")
+    private String zlAgency;
+
+    /**
      * 出道年月日
      */
     @TableField("CD_DEBUT_YMD")
@@ -229,6 +294,18 @@ public class Actress extends Model {
     private String cdPeriods;
 
     /**
+     * 简述
+     */
+    @TableField("MS_RESUME")
+    private String msResume;
+
+    /**
+     * 详细
+     */
+    @TableField("MS_DETAIL")
+    private String msDetail;
+
+    /**
      * 收录时间
      */
     @TableField("RC_RECORD_TIME")
@@ -257,18 +334,6 @@ public class Actress extends Model {
      */
     @TableField("RC_DATA_STATUS")
     private String rcDataStatus;
-
-    /**
-     * 简述
-     */
-    @TableField("MS_RESUME")
-    private String msResume;
-
-    /**
-     * 详细
-     */
-    @TableField("MS_DETAIL")
-    private String msDetail;
 
 
 }

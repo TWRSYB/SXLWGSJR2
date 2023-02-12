@@ -20,7 +20,6 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @TableName("m_fanhao")
 public class Fanhao extends Model {
-
     private static final long serialVersionUID = 1L;
 
     /**
@@ -60,10 +59,34 @@ public class Fanhao extends Model {
     private String ypIssueYmd;
 
     /**
+     * 时长
+     */
+    @TableField("YP_DURATION")
+    private String ypDuration;
+
+    /**
+     * 中文名
+     */
+    @TableField("NM_CN")
+    private String nmCn;
+
+    /**
+     * 日文名
+     */
+    @TableField("NM_JP")
+    private String nmJp;
+
+    /**
+     * 英文名
+     */
+    @TableField("NM_EN")
+    private String nmEn;
+
+    /**
      * 同时女优数: 0,1,2,N
      */
     @TableField("YY_COEXIST_ACTRESS_NUM")
-    private Integer yyCoexistActressNum;
+    private String yyCoexistActressNum;
 
     /**
      * 女优列表: 关联表(女演员表M_ACTRESS)
@@ -81,10 +104,10 @@ public class Fanhao extends Model {
      * 同时男优数: 0,1,2,N
      */
     @TableField("YY_COEXIST_ACTOR_NUM")
-    private Integer yyCoexistActorNum;
+    private String yyCoexistActorNum;
 
     /**
-     * 男优编号: 由字典表维护, 男演员表(D_ACTOR)
+     * 男优编号
      */
     @TableField("YY_ACTOR_NO")
     private String yyActorNo;
@@ -96,7 +119,7 @@ public class Fanhao extends Model {
     private Integer yyLadyboyNum;
 
     /**
-     * 人妖编号: 由字典表维护, 人妖表(D_LADYBOY)
+     * 人妖编号
      */
     @TableField("YY_LADYBOY_NO")
     private String yyLadyboyNo;
@@ -108,19 +131,25 @@ public class Fanhao extends Model {
     private String yyBeastType;
 
     /**
-     * 场景: 家庭, 户外, 综艺, 囚禁, 专业A片
+     * 服饰: 普通,开裆裤,模特制服,OL制服,女仆装,和服
+     */
+    @TableField("JQ_DRESS")
+    private String jqDress;
+
+    /**
+     * 场景: 家庭,户外,综艺,囚禁,男厕,教室,办公室
      */
     @TableField("JQ_SCENE_TYPE")
     private String jqSceneType;
 
     /**
-     * 角色: 妻子, 女儿, 老师, 下属, 上司, 性奴, 侦查官, 学生, 主人, 专业A片
+     * 角色: 妻子, 女儿, 老师, 下属, 上司, 性奴, 侦查官, 学生, 主人, AV演员
      */
     @TableField("JQ_ROLE_TYPE")
     private String jqRoleType;
 
     /**
-     * 剧情: 夫妻性爱, 轮乱, 强奸, 性虐, 兽交, 侦查官, 专业A片
+     * 剧情: 夫妻性爱, 轮乱, 强奸, 性虐, 兽交, 侦查官, AV拍摄,综艺节目
      */
     @TableField("JQ_STORY_TYPE")
     private String jqStoryType;
@@ -228,10 +257,40 @@ public class Fanhao extends Model {
     private String tsDrindManUrineYn;
 
     /**
+     * 面骑与否: 是, 否
+     */
+    @TableField("TS_FACE_RIDING_YN")
+    private String tsFaceRidingYn;
+
+    /**
      * 饮女尿: 是,否
      */
     @TableField("TS_DRIND_WOMAN_URINE_YN")
     private String tsDrindWomanUrineYn;
+
+    /**
+     * 接吻与否: 是, 否
+     */
+    @TableField("TS_KISS_YN")
+    private String tsKissYn;
+
+    /**
+     * 鸡巴大小: 0-未收录, 1-极小, 2-小, 3-正常, 4-大, 5-巨大
+     */
+    @TableField("TS_PENIS_SIZE_LV")
+    private String tsPenisSizeLv;
+
+    /**
+     * 大龟头: 是, 否
+     */
+    @TableField("TS_BIG_BALANUS_YN")
+    private String tsBigBalanusYn;
+
+    /**
+     * 奶子大小: 0-未收录, 1-极小, 2-小, 3-正常, 4-大, 5-巨大
+     */
+    @TableField("TS_TIT_SIZE_LV")
+    private String tsTitSizeLv;
 
     /**
      * 简述
@@ -274,6 +333,5 @@ public class Fanhao extends Model {
      */
     @TableField("RC_DATA_STATUS")
     private String rcDataStatus;
-
 
 }

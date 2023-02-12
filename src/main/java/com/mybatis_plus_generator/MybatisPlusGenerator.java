@@ -74,10 +74,10 @@ public class MybatisPlusGenerator {
         strategy.setRestControllerStyle(true);
         strategy.setEntityLombokModel(true);
 
-        String  tableNames="d_series";
+        String  tableNames="m_fanhao";
         strategy.setInclude(tableNames.split(","));
         strategy.setControllerMappingHyphenStyle(true);
-        strategy.setTablePrefix("d_");
+        strategy.setTablePrefix("m_");
         mpg.setStrategy(strategy);
 
         //执行

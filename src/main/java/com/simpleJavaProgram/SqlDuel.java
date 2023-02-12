@@ -69,16 +69,9 @@ public class SqlDuel {
 
     private static void 将下划线转为驼峰() {
 
-        String str = "XL_SIMPLE\n" +
-                "XL_FULL\n" +
-                "NM_JP\n" +
-                "NM_CN\n" +
-                "FH_PATTERN\n" +
-                "FH_RULER\n" +
-                "GD_PRODUCER\n" +
-                "GD_MOSAIC\n" +
-                "GD_SUB_SERIES\n" +
-                "GD_LOGO\n";
+        String str = "JQ_DRESS\n" +
+                "TS_FACE_RIDING_YN\n" +
+                "YP_DURATION\n";
         String[] rows = str.split("\n");
         for (String row : rows) {
             String[] words = row.split("_");
@@ -125,36 +118,7 @@ public class SqlDuel {
     }
 
     private static void 将字段装换为Json字符串对象() {
-        String str = "SERIES\t系列\t由字典表维护, 系列表(D_SERIES)\n" +
-                "PRIMITIVE_FANHAO\t原番号\t官方番号\n" +
-                "SYS_FANHAO\t系统番号\t系统录入番号, 加勒比和一本道进行了时间的顺序化\n" +
-                "FILM_TITLE\t影片名称\t\n" +
-                "ACTRESS_NUM\t女优数\t0-没有,1-一个, 2-两个, N-大于两个\n" +
-                "ACTRESS_NO\t女优编号\t关联表, 女演员表M_ACTRESS\n" +
-                "ACTRESS\t女优\t\n" +
-                "ACTOR_NUM\t男优数\t0-没有,1-一个, 2-两个, N-大于两个\n" +
-                "ACTOR_NO\t男优\t由字典表维护, 男演员表(D_ACTOR)\n" +
-                "LADYBOY_NUM\t人妖数\t0-没有,1-一个, 2-两个, N-大于两个\n" +
-                "LADYBOY_NO\t人妖编号\t由字典表维护, 人妖表(D_LADYBOY)\n" +
-                "BEAST_TYPE\t兽类\t狗,马,泥鳅,猪,蛇,其他\n" +
-                "SCENE_TYPE\t场景\t家庭, 户外, 综艺, 囚禁, 专业A片\n" +
-                "ROLE_TYPE\t角色\t妻子, 女儿, 老师, 下属, 上司, 性奴, 侦查官, 学生, 主人, 专业A片\n" +
-                "STORY_TYPE\t剧情\t夫妻性爱, 轮乱, 强奸, 性虐, 兽交, 侦查官, 专业A片\n" +
-                "ANAL_SEX_LV\t肛交级别\t0-无肛交, 1-1人肛交, N多人肛交\n" +
-                "ENEMA_LV\t灌肠级别\t0-无灌肠, 1-简单灌肠, 2大量灌肠\n" +
-                "ENDOSCOPY_ANAL_YN\t内窥肛门与否\tY-是, N-否\n" +
-                "ENDOSCOPY_VAGINA_YN\t内窥阴道与否\tY-是, N-否\n" +
-                "ORAL_SEX_LV\t口交级别\t0-无口交, 1-自愿口交, 2-强制口交, 3-深喉\n" +
-                "TIE_LV\t捆绑级别\t0-无捆绑, 1-手脚捆绑, 2-全身捆绑, 3-支架捆绑\n" +
-                "INJECT_SEMEN_LV\t阴道灌精级别\t0-无内射, 1-普通内射, 2-轮番内射, 3-轮番灌精\n" +
-                "FACE_EJACULATE_LV\t颜射级别\t0-无颜射, 1-1人颜射, N-多人颜射\n" +
-                "MOUTH_EJACULATE_LV\t口爆级别\t0-无口爆, 1-1人口爆, N-多人口爆\n" +
-                "SWALLOW_SEMEN_LV\t吞精级别\t0-无吞精, 1-吞1人精, N-吞多人精\n" +
-                "WHITE_TIGER_LV\t白虎级别\t0-非白虎, 1-人工白虎, 2-天然白虎\n" +
-                "RECORDING_TIME\t收录时间\t\n" +
-                "RECORDER\t收录人\t\n" +
-                "LAST_MODIFIED_TIME\t最后修改时间\t\n" +
-                "LAST_MODIFIER\t最后修改人\t\n";
+        String str = "";
         System.out.println("{");
         String[] rows = str.split("\n");
         for (String row : rows) {
@@ -177,23 +141,10 @@ public class SqlDuel {
     }
 
     private static void 将字段装换为CreateSql语句() {
-        String str = "XL_SIMPLE\t简称\t\n" +
-                "XL_FULL\t全称\t\n" +
-                "NM_JP\t日文名\t\n" +
-                "NM_CN\t中文名\t\n" +
-                "FH_PATTERN\t番号样式\t\n" +
-                "FH_RULER\t番号规则\t\n" +
-                "GD_PRODUCER\t厂商\t\n" +
-                "GD_MOSAIC\t马赛克\t骑兵, 步兵\n" +
-                "GD_SUB_SERIES\t子系列\t\n" +
-                "GD_LOGO\t图标\t\n" +
-                "MS_RESUME\t简述\t\n" +
-                "MS_DETAIL\t详细\t\n" +
-                "RC_RECORD_TIME\t收录时间\t\n" +
-                "RC_RECORDER\t收录人\t\n" +
-                "RC_LAST_MODIFIED_TIME\t最后修改时间\t\n" +
-                "RC_LAST_MODIFIER\t最后修改人\t\n" +
-                "RC_DATA_STATUS\t数据状态\t0-未生效, 1-正常, 2-不可用,9-废弃\n";
+        String str = "TS_KISS_YN\t接吻与否\t是, 否\n" +
+                "TS_BIG_BALANUS_YN\t大龟头与否\t是, 否\n" +
+                "TS_PENIS_SIZE_LV\t鸡巴大小级别\t0-未收录, 1-极小, 2-小, 3-正常, 4-大, 5-巨大\n" +
+                "TS_TIT_SIZE_LV\t奶子大小级别\t0-未收录, 1-极小, 2-小, 3-正常, 4-大, 5-巨大\n";
 
         String[] rows = str.split("\n");
         for (String row : rows) {

@@ -27,6 +27,11 @@ public class FanhaoController {
     @Autowired
     private FanhaoService fanhaoService;
 
+    /**
+     * 添加番号
+     * @param fanhhao
+     * @return
+     */
     @PostMapping("/addFanhao")
     public String addFanhao(@RequestBody Fanhao fanhhao){
         System.out.println("fanhhao = " + fanhhao);
@@ -34,20 +39,58 @@ public class FanhaoController {
         return "完成";
     }
 
+    /**
+     * 查询番号列表
+     * @return
+     */
     @GetMapping("/queryFanhaoList")
     public List<Fanhao> queryFanhaoList(){
         return fanhaoService.queryFanhaoList();
     }
 
+    /**
+     * 获取表设计
+     * @return
+     */
     @GetMapping("/getTableDesign")
     public ResVo<TableDesign> getTableDesign(){
         return fanhaoService.getTableDesign();
     }
 
+
+    /**
+     * 搜索番号
+     * @param map
+     * @return
+     */
     @PostMapping("/fanhaoSearch")
     public ResVo<List<FanhaoMix>> fanhaoSearch(@RequestBody Map<String, String> map){
         return fanhaoService.fanhaoSearch(map);
     }
+
+
+    /**
+     * 生成番号
+     * @param fanhao
+     * @return
+     */
+    @PostMapping("/gnrtFanhao")
+    public ResVo<Fanhao> gnrtFanhao(@RequestBody Fanhao fanhao){
+        return fanhaoService.gnrtFanhao(fanhao);
+    }
+
+    /**
+     * 更新番号
+     * @param fanhao
+     * @return
+     */
+    @PostMapping("/updateFanhao")
+    public ResVo<Fanhao> updateFanhao(@RequestBody Fanhao fanhao){
+        return fanhaoService.updateFanhao(fanhao);
+    }
+
+
+
 
 }
 

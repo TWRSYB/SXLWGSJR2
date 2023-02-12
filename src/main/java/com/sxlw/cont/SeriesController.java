@@ -47,5 +47,10 @@ public class SeriesController {
         return seriesService.updateSeries(series);
     }
 
+    @PostMapping("/gnrtSeries")
+    public ResVo<Series> gnrtSeries(@RequestBody Series series){
+        return seriesService.gnrtSeries(series);
+    }
+
 }
 
